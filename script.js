@@ -9,9 +9,9 @@ var Messenger = function(el){
     m.fadeBuffer = false;
     m.messages = [
       'Kai Watanabe.',
-      'Privacy Advocate.',
+      'Japan.',
       'xPrivacy.',
-      'Bluelock Org.'
+      'xBluelock Org.'
     ];
     
     setTimeout(m.animateIn, 100);
