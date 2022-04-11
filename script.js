@@ -10,8 +10,8 @@ var Messenger = function(el){
     m.messages = [
       'Kai Watanabe.',
       'Privacy Advocate.',
-      'Learner.',
-      'Solitude.'
+      'xPrivacy.',
+      'Bluelock Org.'
     ];
     
     setTimeout(m.animateIn, 100);
