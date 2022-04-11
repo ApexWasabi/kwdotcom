@@ -6,13 +6,13 @@ var Messenger = function(el){
     m.codeletters = "&#*+%?£@§$";
     m.message = 0;
     m.current_length = 0;
-    m.fadeBuffer = true;
+    m.fadeBuffer = false;
     m.messages = [
       'Kai Watanabe.',
       'Japanese.',
       'xPrivacy.',
       'xBluelock Org.',
-      'I believe that privacy is a fundamental human right.'
+      'Privacy for all.'
     ];
     
     setTimeout(m.animateIn, 100);
