@@ -9,8 +9,11 @@ var Messenger = function(el){
     m.fadeBuffer = true;
     m.messages = [
       'Kai Watanabe.',
+      '&#*+%?£@§$',
       'Japanese.',
+      '&#*+%?£@§$',
       'xPrivacy.',
+      '&#*+%?£@§$',
       'xBluelock Org.'
     ];
     
