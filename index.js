@@ -1,93 +1,48 @@
-var Messenger = function(el){
-    'use strict';
-    var m = this;
-    
-    m.init = function(){
-      m.codeletters = "&#*+%?£@§$";
-      m.message = 0;
-      m.current_length = 0;
-      m.fadeBuffer = false;
-      m.messages = [
-        'This is a message, which can be long and all.',
-        'This could be another message.',
-        'Also short ones work!',
-        'Cool.'
-      ];
-      
-      setTimeout(m.animateIn, 100);
-    };
-    
-    m.generateRandomString = function(length){
-      var random_text = '';
-      while(random_text.length < length){
-        random_text += m.codeletters.charAt(Math.floor(Math.random()*m.codeletters.length));
-      } 
-      
-      return random_text;
-    };
-    
-    m.animateIn = function(){
-      if(m.current_length < m.messages[m.message].length){
-        m.current_length = m.current_length + 2;
-        if(m.current_length > m.messages[m.message].length) {
-          m.current_length = m.messages[m.message].length;
-        }
-        
-        var message = m.generateRandomString(m.current_length);
-        $(el).html(message);
-        
-        setTimeout(m.animateIn, 20);
-      } else { 
-        setTimeout(m.animateFadeBuffer, 20);
-      }
-    };
-    
-    m.animateFadeBuffer = function(){
-      if(m.fadeBuffer === false){
-        m.fadeBuffer = [];
-        for(var i = 0; i < m.messages[m.message].length; i++){
-          m.fadeBuffer.push({c: (Math.floor(Math.random()*12))+1, l: m.messages[m.message].charAt(i)});
-        }
-      }
-      
-      var do_cycles = false;
-      var message = ''; 
-      
-      for(var i = 0; i < m.fadeBuffer.length; i++){
-        var fader = m.fadeBuffer[i];
-        if(fader.c > 0){
-          do_cycles = true;
-          fader.c--;
-          message += m.codeletters.charAt(Math.floor(Math.random()*m.codeletters.length));
-        } else {
-          message += fader.l;
-        }
-      }
-      
-      $(el).html(message);
-      
-      if(do_cycles === true){
-        setTimeout(m.animateFadeBuffer, 50);
-      } else {
-        setTimeout(m.cycleText, 2000);
-      }
-    };
-    
-    m.cycleText = function(){
-      m.message = m.message + 1;
-      if(m.message >= m.messages.length){
-        m.message = 0;
-      }
-      
-      m.current_length = 0;
-      m.fadeBuffer = false;
-      $(el).html('');
-      
-      setTimeout(m.animateIn, 200);
-    };
-    
-    m.init();
+var dictionary = "0123456789qwertyuiopasdfghjklzxcvbnm!?></\a`~+*=@#$%".split('');
+
+var el = document.querySelector('h1');
+var btn = document.querySelector('.button');
+
+var ran = function() {
+ return Math.floor(Math.random() * dictionary.length)
+}
+
+var ranString = function(amt) {
+  var string = '';
+  for(var i = 0; i < amt; i++) {
+    string += dictionary[ran()];
   }
+  return string;
+}
+
+var init = function(str) {
+  var count = str.length;
+  var delay = 50;
   
-  console.clear();
-  var messenger = new Messenger($('#messenger'));
+  btn.classList.remove('show');
+  el.innerHTML = '';
+  
+  var gen = setInterval(function() {
+    el.setAttribute('data-before', ranString(count));
+    el.setAttribute('data-after', ranString(count));
+    if(delay > 0) {
+      delay--;
+    }
+    else {
+      if(count < str.length) {
+        el.innerHTML += str[str.length - count-1];
+      }
+      count--;
+      if(count === -1) {
+        clearInterval(gen);
+        showButton();
+      }
+    }
+  }, 32);
+}
+
+var showButton = function() {
+  btn.classList.add('show');
+}
+
+init('Decrypted 👍');
