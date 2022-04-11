@@ -9,7 +9,7 @@ var Messenger = function(el){
     m.fadeBuffer = false;
     m.messages = [
       'Kai Watanabe.',
-      'Japan.',
+      'Japanese.',
       'xPrivacy.',
       'xBluelock Org.'
     ];
