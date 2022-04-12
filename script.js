@@ -8,11 +8,11 @@ var Messenger = function(el){
     m.current_length = 0;
     m.fadeBuffer = true;
     m.messages = [
-      'Kai Watanabe.',
       'Japanese.',
       'xPrivacy.',
       'xBluelock Org.',
-      'Privacy for all.'
+      'Privacy for all.',
+      'Kai Watanabe.'
     ];
     
     setTimeout(m.animateIn, 100);
