@@ -11,7 +11,8 @@ var Messenger = function(el){
       'Kai Watanabe.',
       'Japanese.',
       'xPrivacy.',
-      'xBluelock Org.',
+      'Board of Directors at Bluelock Org.',
+      'Writer for BlueBlog',
       'Privacy for all.'
     ];
     
