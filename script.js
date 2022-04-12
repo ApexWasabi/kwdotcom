@@ -10,9 +10,10 @@ var Messenger = function(el){
     m.messages = [
       'Kai Watanabe.',
       'Japanese.',
-      'xPrivacy.',
       'Board of Directors at Bluelock Org.',
-      'Writer for BlueBlog',
+      'Writer and Editor at BlueBlog.',
+      'xPrivacy.',
+      'xSolitude.',
       'Privacy for all.'
     ];
     
